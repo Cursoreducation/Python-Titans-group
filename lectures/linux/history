@@ -1,0 +1,70 @@
+ 1564  ls
+ 1565  sudo apt remove htop
+ 1566  ls
+ 1567  sudo apt install htop
+ 1568  ls
+ 1569  ls -l
+ 1570  cd /
+ 1571  ls -l
+ 1572  cd
+ 1573  ls
+ 1574  ls -l
+ 1575  chmod -R 775
+ 1576  chmod -R 775 lesson-linux/
+ 1577  ls -l
+ 1578  chmod -R 773 lesson-linux/
+ 1579  ls -l
+ 1580  chmod -R 772 lesson-linux/
+ 1581  ls -l
+ 1582  chmod -R 771 lesson-linux/
+ 1583  ls -l
+ 1584  chmod -R 773 lesson-linux/
+ 1585  chmod -R 774 lesson-linux/
+ 1586  ls -l
+ 1587  chmod -R rwxrwxrwx lesson-linux/
+ 1588  chmod -R +rwxrwxrwx lesson-linux/
+ 1589  ls -l
+ 1590  4 - read
+ 1591  2 - write
+ 1592  1 - write
+ 1593  ls
+ 1594  chown -R root:root lesson-linux/
+ 1595  sudo chown -R root:root lesson-linux/
+ 1596  ls -l
+ 1597  sudo chown -R root:dev lesson-linux/
+ 1598  ls -l
+ 1599  ls
+ 1600  cat index.html 
+ 1601  cd lesson-linux/
+ 1602  ls
+ 1603  ls -l
+ 1604  rm -rf linux-l 
+ 1605  rm -r linux-l 
+ 1606  ls
+ 1607  touch linux
+ 1608  nano linux 
+ 1609  cat linux 
+ 1610  ls
+ 1611  du -sh 
+ 1612  touch linux2
+ 1613  nano linux2
+ 1614  touch linux2
+ 1615  ls
+ 1616  cat linux2 
+ 1617  du -sh
+ 1618  df -h
+ 1619  sudo apt install htop
+ 1620  top
+ 1621  htop
+ 1622  git 
+ 1623  ls
+ 1624  ді
+ 1625  ls
+ 1626  touch history
+ 1627  history
+cd
+ls
+mkdir
+cat
+apt install
+sudo
