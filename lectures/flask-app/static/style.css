@@ -1,0 +1,8 @@
+.cards {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.cards .card {
+    margin-right: 30px;
+}

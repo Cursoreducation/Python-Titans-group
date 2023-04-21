@@ -1,12 +1,13 @@
 import hashlib
 from app import app, db
 from flask import render_template, request, redirect, session
-from models import User
+from models import User, Article
 
 
 @app.route("/")
 def hello_world():
-    return render_template("index.html")
+    articles = Article.query.all()
+    return render_template("index.html", articles=articles)
 
 
 @app.route("/sign-up")

@@ -1,3 +1,4 @@
+from datetime import datetime
 from app import db
 
 
@@ -17,3 +18,11 @@ class User(db.Model):
             "first_name": self.first_name,
             "last_name": self.last_name
         }
+
+
+class Article(db.Model):
+    __tablename__ = "articles"
+    id = db.Column(db.Integer, primary_key=True)
+    title = db.Column(db.String(255), nullable=False)
+    body = db.Column(db.Text, nullable = False)
+    created_at = db.Column(db.DateTime, default=datetime.utcnow())
