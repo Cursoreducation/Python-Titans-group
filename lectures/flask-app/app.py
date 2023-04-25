@@ -1,9 +1,11 @@
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
+from flask_restful import Api
 
 
 app = Flask(__name__)
+api = Api(app)
 db = SQLAlchemy()
 app.config["SQLALCHEMY_DATABASE_URI"] = "mysql+pymysql://flask:flask@db:3306/flask"
 app.secret_key = "sadasdsdssadsadsadsadsadssaddas"
