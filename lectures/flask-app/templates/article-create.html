@@ -10,6 +10,11 @@
       <textarea class="form-control" placeholder="Leave a body here" id="floatingTextarea2" name="body" style="height: 100px"></textarea>
       <label for="floatingTextarea2">Body</label>
     </div>
+    <select class="form-select form-select-lg mb-3" name="categories" multiple aria-label=".form-select-lg example">
+        {% for category in categories %}
+            <option value="{{ category.id }}">{{ category.name }}</option>
+        {% endfor %}
+    </select>
     <button type="submit" class="btn btn-primary">Submit</button>
 </form>
 

@@ -1,5 +1,5 @@
 from app import api, db
-from models import Article, MenuItem
+from models import Article, MenuItem, Category
 from flask import request, Response
 from flask_restful import Resource
 
@@ -57,6 +57,16 @@ class MenuItemResource(Resource):
         return menu_item.serialize
 
 
+class CategoryResource(Resource):
+    def get(self):
+        categories = Category.query.all()
+        categories_list = []
+        for category in categories:
+            categories_list.append(category.serialize)
+        return categories_list
+
+
 api.add_resource(ArticleResource, "/api/articles")
 api.add_resource(ArticleSingleResource, "/api/articles/<int:id>")
 api.add_resource(MenuItemResource, "/api/menu-items")
+api.add_resource(CategoryResource, "/api/categories")

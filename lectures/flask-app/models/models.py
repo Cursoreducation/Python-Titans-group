@@ -20,11 +20,16 @@ class User(db.Model):
         }
 
 
+articles_categories = db.Table("articles_categories", db.Column("article_id", db.Integer, db.ForeignKey("articles.id")),
+                               db.Column("category_id", db.Integer, db.ForeignKey("categories.id")))
+
+
 class Article(db.Model):
     __tablename__ = "articles"
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(255), nullable=False)
-    body = db.Column(db.Text, nullable = False)
+    body = db.Column(db.Text, nullable=False)
+    user_id = db.Column(db.Integer, db.ForeignKey("users.id"))
     created_at = db.Column(db.DateTime, default=datetime.utcnow())
 
     @property
@@ -37,8 +42,24 @@ class Article(db.Model):
         }
 
 
+class Category(db.Model):
+    __tablename__ = "categories"
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(255), nullable=False)
+    slug = db.Column(db.String(255), nullable=False, unique=True)
+    articles = db.relationship("Article", secondary=articles_categories, backref="articles")
+
+    @property
+    def serialize(self):
+        return {
+            "id": self.id,
+            "name": self.name,
+            "slug": self.slug,
+        }
+
+
 class MenuItem(db.Model):
-    __tablename__="menu_items"
+    __tablename__ = "menu_items"
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(255), nullable=False)
     link = db.Column(db.String(255), nullable=False)

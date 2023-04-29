@@ -20,6 +20,8 @@ services:
     build:
       dockerfile: ./docker/python/Dockerfile
       context: .
+    environment:
+      PYTHONUNBUFFERED: 1
     ports:
       - 5050:5000
     networks:
