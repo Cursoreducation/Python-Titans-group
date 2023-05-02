@@ -1,2 +1,4 @@
 docker/db
 ./docker/db
+.pytest_cache/
+./.pytest_cache/
