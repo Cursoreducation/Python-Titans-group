@@ -9,7 +9,7 @@ services:
       MYSQL_PASSWORD: flask
       MYSQL_DATABASE: flask
     ports:
-      - 3310:3306
+      - 3332:3306
     volumes:
       - ./docker/db:/var/lib/mysql
     networks:
@@ -23,7 +23,7 @@ services:
     environment:
       PYTHONUNBUFFERED: 1
     ports:
-      - 5050:5000
+      - 5090:5000
     networks:
       - app
     volumes:
@@ -33,7 +33,7 @@ services:
   nginx:
     image: nginx:1.23-alpine
     ports:
-      - 1440:80
+      - 1556:80
     volumes:
       - ./docker/nginx/nginx.conf:/etc/nginx/conf.d/default.conf
       - .:/app
