@@ -1,0 +1,8 @@
+.products-list {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.products-list > .card {
+    margin-right: 15px;
+}

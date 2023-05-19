@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block content %}
+    <div class="container">
+        <h1 class="text-center">{{ category.title }}</h1>
+        <div class="products-list">
+            {% for product in products %}
+                <div class="card" style="width: 18rem;">
+                  <img src="/media/{{ product.main_image }}" class="card-img-top" alt="...">
+                  <div class="card-body">
+                    <h5 class="card-title">{{ product.title }}</h5>
+                    <p class="card-text">{{ product.price }}$</p>
+                    <a href="#" class="btn btn-primary">Buy</a>
+                  </div>
+                </div>
+            {% endfor %}
+        </div>
+
+    </div>
+
+{% endblock %}
