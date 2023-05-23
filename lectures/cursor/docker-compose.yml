@@ -20,8 +20,8 @@ services:
       dockerfile: ./docker/python/Dockerfile
     ports:
       - 8080:5000
-    environment:
-      PYTHONBUFFERED: 1
+    env_file:
+      - .env
     volumes:
       - .:/app
     depends_on:
