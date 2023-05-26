@@ -6,3 +6,36 @@
 .products-list > .card {
     margin-right: 15px;
 }
+
+.left-nav {
+    display: flex;
+    justify-content: space-between;
+    width: 20%;
+}
+
+.login-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 70%;
+}
+
+.shopping-cart {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 18%;
+}
+
+.shopping-cart:hover {
+    cursor: pointer;
+}
+
+.shopping-cart .shopping-cart-number {
+    display: block;
+    width: 20px;
+    text-align: center;
+    background-color: red;
+    font-weight: bold;
+    border-radius: 31%;
+}

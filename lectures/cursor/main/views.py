@@ -1,14 +1,15 @@
 from django.shortcuts import render
 from django.http import HttpResponseRedirect
-from .models import MenuItem, Order, OrderItems
-from products.models import Product, Category
+from django.contrib.auth import login, authenticate, logout
+from django.contrib import messages
+from .models import Order, OrderItems
+from .forms import NewUserForm
+from products.models import Product
 
 
 def main(request):
-    menu_items = MenuItem.objects.all()
     products = Product.objects.filter(show_on_main_page=True)
-    categories = Category.objects.filter(parent_id=None)
-    return render(request, "index.html", {"menu_items": menu_items, "products": products, "categories": categories})
+    return render(request, "index.html", {"products": products})
 
 
 def add_to_cart(request, product_id: int):
@@ -73,3 +74,26 @@ def checkout_proceed(request):
     return HttpResponseRedirect("/")
 
 
+def register(request):
+    if request.method == "POST":
+        form = NewUserForm(request.POST)
+        if form.is_valid():
+            user = form.save()
+            login(request, user)
+            return HttpResponseRedirect("/")
+    form = NewUserForm()
+    return render(request, "sign-up.html", {"form": form})
+
+
+def sign_in(request):
+    if request.method == "POST":
+        user = authenticate(username=request.POST.get("username"), password=request.POST.get("password"))
+        if user:
+            login(request, user)
+        return HttpResponseRedirect('/')
+    return render(request, "sign-in.html")
+
+
+def sign_out(request):
+    logout(request)
+    return HttpResponseRedirect("/")
