@@ -39,3 +39,38 @@
     font-weight: bold;
     border-radius: 31%;
 }
+
+
+.product-info {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.carousel {
+    width: 30%;
+}
+
+.carousel .image img {
+    height: 300px;
+}
+
+.slick-prev:before, .slick-next:before {
+    color: black !important;
+}
+
+.single-comment {
+    margin-top: 15px;
+    text-align: left;
+}
+
+.single-comment .comment-user {
+    font-weight: bold;
+    margin:0;
+    padding: 0;
+}
+
+.single-comment .childs-comments {
+    margin-left: 20px;
+}

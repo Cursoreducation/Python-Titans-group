@@ -1,8 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponseRedirect
 from django.contrib.auth import login, authenticate, logout
-from django.contrib import messages
-from .models import Order, OrderItems
+from .models import Order, OrderItem
 from .forms import NewUserForm
 from products.models import Product
 
@@ -65,7 +64,7 @@ def checkout_proceed(request):
         order.total_price = total
         order.save()
         for item in request.session.get("cart", []):
-            order_item = OrderItems()
+            order_item = OrderItem()
             order_item.product_id = item["id"]
             order_item.order_id = order.id
             order_item.price = item["price"]
