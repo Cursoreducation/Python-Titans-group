@@ -7,7 +7,7 @@ from products.models import Product
 
 
 def main(request):
-    products = Product.objects.filter(show_on_main_page=True)
+    products = Product.product_objects.main_page_products()
     return render(request, "index.html", {"products": products})
 
 

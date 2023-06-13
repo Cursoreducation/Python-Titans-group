@@ -55,7 +55,11 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    "main.middlewares.referral.RefferalMiddleware"
 ]
+
+AUTHENTICATION_BACKENDS = ['main.backends.EmailBackend']
+
 
 ROOT_URLCONF = "cursor.urls"
 

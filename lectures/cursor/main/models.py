@@ -2,6 +2,11 @@ from django.db import models
 from products.models import Product
 
 
+class RefferalLink(models.Model):
+    refferal_link = models.CharField(max_length=45, unique=True)
+    count_of_view = models.BigIntegerField()
+
+
 class MenuItem(models.Model):
     title = models.CharField(max_length=255)
     link = models.CharField(max_length=255)

@@ -3,6 +3,15 @@ from django.db.models import Q
 from django.contrib.auth.models import User
 
 
+class ProductManager(models.Manager):
+    def all(self):
+        return self.filter(is_active=True)
+
+    def get_queryset(self):
+        return super().get_queryset().filter(is_active=True)
+
+    def main_page_products(self):
+        return self.filter(show_on_main_page=True)
 
 
 class Product(models.Model):
@@ -13,6 +22,10 @@ class Product(models.Model):
     discount_price = models.IntegerField(null=True, blank=True)
     show_on_main_page = models.BooleanField(default=False)
     is_active = models.BooleanField(default=True)
+
+    objects = models.Manager()
+
+    product_objects = ProductManager()
 
     @property
     def main_image(self):
